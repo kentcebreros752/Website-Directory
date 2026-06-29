@@ -260,11 +260,21 @@
     .card p{margin:0; color:var(--muted)}
 
     /* Pricing */
-    .price-grid{ display:grid; gap:20px; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); }
-    @media (min-width: 960px){
-      .price-grid{ grid-template-columns: repeat(3, minmax(240px, 1fr)); }
+    .price-grid{
+      display:grid;
+      gap:20px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 300px));
+      justify-content: center;
+      justify-items: center;
     }
-    .price-card{ background:#fff; border:1px solid #e5e7eb; border-radius:16px; padding:22px; box-shadow:0 10px 34px rgba(0,0,0,.06); display:flex; flex-direction:column; align-items:stretch; }
+
+    @media (min-width: 960px){
+      .price-grid{
+        grid-template-columns: repeat(3, minmax(240px, 320px));
+        justify-content: center;
+      }
+    }
+    .price-card{ background:#fff; border:1px solid #e5e7eb; border-radius:16px; padding:22px; box-shadow:0 10px 34px rgba(0,0,0,.06); display:flex; flex-direction:column; align-items:stretch; width:100%; max-width:320px; }
     .price-card h3{ margin:0 0 6px; text-align:center; }
     .price-amount{ text-align:center; font-weight:800; font-size:clamp(22px,4vw,28px); color:var(--brand); margin:4px 0 12px; }
     .unit{ color:var(--muted); font-weight:600; font-size:12px; }
@@ -514,9 +524,6 @@
         <div class="card" data-open="mapping">
           <h3>Orthomosaics</h3>
         </div>
-        <div class="card" data-open="models">
-          <h3>3D Models</h3>
-        </div>
       </div>
     </div>
   </section>
@@ -683,26 +690,13 @@
         <details class="service" id="details-mapping">
           <summary><span class="svc-head"><img src="img/info_icon.png" alt="info" class="info-icon svc-i"> Orthomosaics / Mapping</span><span class="svc-hint">Tap to expand</span><span class="svc-chevron">›</span></summary>
           <div class="svc-body">
-            <p>Georeferenced 2D imagery assembled from systematic flight lines. Useful for site change detection, measurement, and annotation. Delivery options include web-friendly JPEG/PNG tiles, full-resolution images, and shareable viewers for non-technical teams.</p>
+            <p>2D stitched orthomosaic imagery assembled from systematic flight lines with approximate alignment accuracy when overlaid on maps. Useful for site change detection, measurement, and annotation. Delivery options include web-friendly JPEG/PNG tiles, full-resolution images, and shareable viewers for non-technical teams.</p>
             <div class="svc-tags">
               <span class="svc-tag">Orthomosaics</span>
               <span class="svc-tag">Change detection</span>
               <span class="svc-tag">Shareable viewers</span>
             </div>
             <a class="jump" href="#portfolio" data-filter="mapping">See examples →</a>
-          </div>
-        </details>
-
-        <details class="service" id="details-models">
-          <summary><span class="svc-head"><img src="img/info_icon.png" alt="info" class="info-icon svc-i"> 3D Models</span><span class="svc-hint">Tap to expand</span><span class="svc-chevron">›</span></summary>
-          <div class="svc-body">
-            <p>Photogrammetric models for site context and geometry checks. Suitable for stakeholder reviews, planning, and basic measurement. Delivered as web-viewable models or screenshots with callouts; raw assets can be provided on request.</p>
-            <div class="svc-tags">
-              <span class="svc-tag">Photogrammetry</span>
-              <span class="svc-tag">Stakeholder review</span>
-              <span class="svc-tag">Web-viewable</span>
-            </div>
-            <a class="jump" href="#portfolio" data-filter="real-estate">See examples →</a>
           </div>
         </details>
 
@@ -761,69 +755,82 @@
   <section class="section" id="pricing">
     <div class="container">
       <h2>Pricing</h2>
-      <p class="muted">Transparent starting points. Final quotes depend on scope, airspace, and deliverables.</p>
+      <p class="muted">
+        Clear starting packages for common project types. Larger or specialized work is scoped individually.
+      </p>
 
       <div class="price-grid">
+
+        <!-- AERIAL MEDIA -->
         <div class="price-card">
-          <h3>Photography</h3>
-          <div class="price-amount">Contact for Quote</div>
+          <h3>Aerial Photo Package</h3>
+          <div class="price-amount">Starting at $199</div>
           <ul class="feature-list">
-            <li>High-resolution aerial photos and/or cinematic video of residential or commercial properties</li>
-            <li>Priced per square foot with a minimum charge; quick on-site capture (often ≤ 30 min)</li>
+            <li>Single-site aerial photo session (residential or commercial)</li>
+            <li>10–20 professionally edited images</li>
+            <li>Roofline, front elevation, and contextual surroundings</li>
+            <li>Delivered in MLS/web-ready formats</li>
           </ul>
-          <a href="#contact" class="btn cta-contact" data-subject="Quote: Photography">Request a quote</a>
+          <a href="#contact" class="btn cta-contact" data-subject="Quote: Aerial Photo Package">
+            Request a quote
+          </a>
         </div>
 
         <div class="price-card">
-          <h3>Videography</h3>
-          <div class="price-amount">Contact for Quote</div>
+          <h3>Aerial Video Package</h3>
+          <div class="price-amount">Starting at $299</div>
           <ul class="feature-list">
-            <li>High-resolution aerial photos and/or cinematic video of residential or commercial properties</li>
-            <li>Priced per square foot with a minimum charge; quick on-site capture (often ≤ 30 min)</li>
+            <li>Cinematic aerial capture of a single site</li>
+            <li>30–90 second edited video</li>
+            <li>Orbit, reveal, and establishing shots</li>
+            <li>Optimized for social media and marketing use</li>
           </ul>
-          <a href="#contact" class="btn cta-contact" data-subject="Quote: Videography">Request a quote</a>
+          <a href="#contact" class="btn cta-contact" data-subject="Quote: Aerial Video Package">
+            Request a quote
+          </a>
+        </div>
+
+        <div class="price-card">
+          <h3>Combined Media Package</h3>
+          <div class="price-amount">Starting at $399</div>
+          <ul class="feature-list">
+            <li>Photo + video coverage in a single session</li>
+            <li>15–25 edited images</li>
+            <li>30–90 second cinematic video</li>
+            <li>Best value for real estate and marketing</li>
+          </ul>
+          <a href="#contact" class="btn cta-contact" data-subject="Quote: Combined Media Package">
+            Request a quote
+          </a>
         </div>
 
         <div class="price-card">
           <h3>Mapping / Orthomosaic</h3>
-          <div class="price-amount">Contact for Quote</div>
+          <div class="price-amount">Starting at $450</div>
           <ul class="feature-list">
-            <li>Orthomosaics, hazard severity overlays, and PDF risk assessment reports</li>
-            <li>Often part of a larger subcontracted bid; scope and frequency determined by HOA needs</li>
+            <li>2D stitched orthomosaic (non-georeferenced; approximate alignment when overlaid on maps)</li>
+            <li>Optional annotations and overlays</li>
+            <li>Delivered in high-resolution and shareable formats</li>
           </ul>
-          <a href="#contact" class="btn cta-contact" data-subject="Quote: Mapping / Orthomosaic">Request a quote</a>
+          <a href="#contact" class="btn cta-contact" data-subject="Quote: Mapping / Orthomosaic">
+            Request a quote
+          </a>
         </div>
 
         <div class="price-card">
-          <h3>3D Models</h3>
-          <div class="price-amount">Contact for Quote</div>
+          <h3>Recurring Inspection Contracts</h3>
+          <div class="price-amount">Custom Retainer</div>
           <ul class="feature-list">
-            <li>3D model generation with risk annotations</li>
-            <li>Pre- and post-mitigation documentation; coordination with mitigation crews</li>
-            <li>Scope and pricing determined per project</li>
+            <li>Scheduled aerial inspections (monthly / quarterly)</li>
+            <li>Wildfire risk, infrastructure, or site monitoring</li>
+            <li>Geotagged photo documentation and reporting</li>
+            <li>Ideal for HOAs, utilities, and property managers</li>
           </ul>
-          <a href="#contact" class="btn cta-contact" data-subject="Quote: 3D Models">Request a quote</a>
+          <a href="#contact" class="btn cta-contact" data-subject="Quote: Recurring Inspection Contract">
+            Request a quote
+          </a>
         </div>
 
-        <div class="price-card">
-          <h3>Encampment Abatement Patrol</h3>
-          <div class="price-amount">Contact for Quote</div>
-          <ul class="feature-list">
-            <li>Aerial patrols of designated areas with geotagged photos, GPS coordinates, and documented findings</li>
-            <li>Can be scheduled quarterly, monthly, or yearly under a recurring contract</li>
-          </ul>
-          <a href="#contact" class="btn cta-contact" data-subject="Quote: Encampment Abatement Patrol">Request a quote</a>
-        </div>
-
-        <div class="price-card">
-          <h3>Recurring HOA Patrol Contract</h3>
-          <div class="price-amount">Contact for Quote</div>
-          <ul class="feature-list">
-            <li>Scheduled aerial inspections and reporting for wildfire risk monitoring</li>
-            <li>Separate from mapping services; offered as a fixed recurring contract</li>
-          </ul>
-          <a href="#contact" class="btn cta-contact" data-subject="Quote: Recurring HOA Patrol Contract">Request a quote</a>
-        </div>
       </div>
     </div>
   </section>
@@ -1066,7 +1073,6 @@
         'insurance':   document.getElementById('details-insurance'),
         'events':      document.getElementById('details-events'),
         'mapping':     document.getElementById('details-mapping'),
-        'models':      document.getElementById('details-models'),
         'construction':document.getElementById('details-construction'),
         'utilities':   document.getElementById('details-utilities'),
         'landscaping': document.getElementById('details-landscaping')
